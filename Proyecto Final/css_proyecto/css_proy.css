@@ -1,0 +1,756 @@
+:root {
+    --color-black-blue : #021325; 
+    --color-green-aqua : #1D869C;
+    --color-blue-france : #3f6fff;
+    --color-white : #fff;
+    --color-black : #000;
+}
+
+
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    min-height: 100vh;
+    background-image: url("/Proyecto Final/Imagenes/fondomain.png");
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #dddddd;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-blue-france);
+}
+
+
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+.comenzar-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comenzar {
+    max-width: 100%;
+    font-size: 120px;
+    color: var(--color-black-blue);
+    font-weight: bold;
+    text-decoration: none;
+    animation:text-fall 2s cubic-bezier(.68,-.55,.265,1.55) both
+}
+
+
+@keyframes text-fall{
+    0% {
+        transform:translateY(-800px) rotate(-540deg);
+        opacity:0;
+    }
+
+    100%
+        {
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+}
+
+
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+/** Barra de Navegacion **/
+
+
+.nav {
+    display: block;
+    background-color: var(--color-blue-france);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: end;
+}
+
+.label {
+    padding: 20px;
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--color-blue-france);
+}
+
+.label:hover {
+    font-weight: bold;
+    animation:text-shadow-drop-center .2s ease-in-out both;
+}
+
+@keyframes text-shadow-drop-center {
+    0%   {
+        text-shadow:0 0 0 transparent
+    }
+    100% {
+        text-shadow:0 0 10px rgb(243, 243, 243)
+
+    }
+} 
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.sub-menu {
+    display: none;
+    flex-direction: column;
+}
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+/** title-pag **/
+
+
+.title-container {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 3px solid var(--color-black-blue);
+    margin-top: 55px;
+    padding-left: 20px;
+    color: var(--color-black-blue)
+}
+
+.title-pag {
+    font-size: 70px;
+    width: 95%;
+	animation: titulo-in 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both ;
+    opacity: 0;
+}
+
+@keyframes titulo-in {
+    0% {
+    letter-spacing: -0.5em;
+    font-family: 'Paytone One', sans-serif;
+    }
+    40% {
+    opacity: 0.6;
+    }
+    100% {
+    opacity: 1;
+    font-family: 'Paytone One', sans-serif;
+    }
+}
+
+
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+/**Perfil Profesional **/
+
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+} 
+
+.perfil-card {
+    max-width: 90%;
+    margin-top: 100px;
+    display: flex;
+    animation: card-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.perfil-text {
+    padding: 20px;
+    width: 100%;
+    font-size: 30px;
+    color: var(--color-white);
+    text-align: center;  
+    animation: text-focus 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    margin: auto;
+}
+
+.perfil-png {
+    min-width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.fondo-png {
+    max-width: 50%;
+    object-fit: contain;
+}
+
+@keyframes card-in {
+    0% {
+    transform: scale(0.3);
+    }
+
+    100% {
+    transform: scale(1);
+    }
+}
+
+@keyframes text-focus {
+        0% {
+        filter: blur(12px);
+        opacity: 0;
+
+        }
+        100% {
+        filter: blur(0px);
+        opacity: 1;
+        }
+}
+
+
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+/** Experiencia Profesional **/
+
+
+.xplab-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 70px;
+    padding: 10px;
+}
+
+.xpsection-cards {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: aparicion 2.5s forwards;
+}
+
+.xplab-card {
+    max-width: 70%;
+    gap: 15px;
+    padding: 10px;
+    margin: 20px;
+    background: var(--color-blue-france) ;
+    border-radius: 40px;
+    outline: 3px solid #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.xplab-card:first-child {
+    align-self: flex-start;
+}
+
+.xplab-card:nth-child(2) {
+    align-self: end;
+}
+
+.xplab-card:last-child {
+    align-self: start;
+}
+
+.xplab-title {
+    width: 95%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.xplab-title h5 {
+    font-size: 22px;
+    align-self: center;
+}
+
+.xplab-title p {
+    font-size: 16px;
+    align-self: center;
+}
+
+.xp-ul {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    list-style-type: square;
+}
+
+
+@keyframes aparicion {
+    0% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+/** Informacion Personal **/
+
+
+
+/**  All Card **/
+
+.inpersonal-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.inpersonal-section {
+    width: 80%;
+    display: flex;
+}
+
+
+/* Hoja izquierda */
+
+.inpersonal-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inpersonal-info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.inpersonal-info img {
+    max-width: 40%;
+    border-radius: 100%;
+    object-fit: contain;
+}
+
+.inpersonal-card  {
+    padding: 26px;
+    background: var(--color-blue-france);
+    border-radius: 0px 40px 0px 40px;
+    filter: drop-shadow(18px 12px 15px #000);
+    animation: minishake 1.5s ease-in-out 0s normal none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.first-card {
+    max-width: 50%;
+}
+
+.second-card {
+    max-width: 80%;
+}
+
+.second-card h6 { 
+    font-size: 30px;
+    border-bottom: 3px solid var(--color-blue-france);  ;
+}
+
+.inpersonal-card ul {
+    margin-top: 7px;
+    gap: 3px;
+    font-size: 15px;
+    list-style-type: square;
+}
+
+@keyframes minishake {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+
+
+/* Hoja derecha */
+
+.inpersonal-right {
+    padding: 13px;
+    color: var(--color-white);
+    min-width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.infobox {
+    padding: 7px;
+    width: 100%;
+}
+
+.infobox h3 {
+    font-size: 30px;
+    border-bottom: 3px solid var(--color-blue-france);
+    width: 97%;
+} 
+
+
+/* Caja Contacto */
+
+.contact-box {
+    margin-top: 8px;
+    padding: 5px 0 5px;
+}
+
+.contact-box i {
+    text-align: start;
+    margin-right: 9px;
+}
+
+.contact-box p { 
+    padding-bottom: 7px;
+    text-align: start;
+    line-height: 1.3;
+}
+
+
+/* Caja Aptitudes */
+
+.aptitude-list {
+    width: 100%;
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    align-content: center;
+}
+
+.aptitude-li {
+    align-self: start;
+    list-style-position: inside;
+    padding-bottom: 3px;
+}
+
+
+/** Caja Idiomas **/
+
+.idiom-box {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 9px;
+}
+
+.idiom-box li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.idiom-med {
+        height: 10px;
+        width: 200px;
+        background-color: #ddd;
+        border-radius: 10px;
+        margin-right: 50px;
+}
+
+
+.progress-es {
+    height: 10px;
+    width: 100%; 
+    background-color: var(--color-blue-france); 
+    border-radius: 10px;
+}
+
+.progress-en {
+    height: 10px;
+    width: 86%; 
+    background-color:var(--color-blue-france); 
+    border-radius: 10px;
+}
+
+.progress-it {
+    height: 10px;
+    width: 52%; 
+    background-color: var(--color-blue-france); 
+    border-radius: 10px;
+}
+
+.progress-fr {
+    height: 10px;
+    width: 67%; 
+    background-color: var(--color-blue-france); 
+    border-radius: 10px;
+}
+
+
+/** Caja Lenguajes de Programacion **/
+
+.prog-info {
+    margin-top: 9px;
+    text-align: start;
+}
+
+
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+/* Generales */
+
+.xpsection-cards , .perfil-card , .inpersonal-section  {
+    background-color: var(--color-black-blue);
+    padding: 10px;
+    box-shadow: 20px 17px 22px 8px var(--color-black);
+    border-radius: 24px 24px 24px 24px;
+}
+
+.inpersonal-fontsize {
+    font-size: 17px;
+}
+
+
+/** ----------------------------------------------------------------------------------------------------------------- **/
+
+
+
+
+/* Media Queris */
+
+@media only screen and (max-width:1000px) {
+
+/* Perfil profesional responsivo */
+    .perfil-card {
+        flex-wrap: wrap;
+    }
+
+/* Informacion Personal Responsivo */
+    .inpersonal-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .first-card {
+        max-width: fit-content;
+    }
+
+    .second-card {
+        max-width: fit-content;
+    }
+
+    .first-card ul {
+        font-size: 12px;
+    }
+
+    .second-card h6 {
+        font-size: 18px;
+    }
+
+    .second-card ul{
+    font-size: 12px;
+    }
+
+    .infobox h3 {
+        font-size: 20px;
+    }
+
+    .inpersonal-fontsize {
+        font-size: 12px;
+    }
+
+}
+
+@media  screen and (max-width: 700px) {
+
+/* Pagina principal responsiva */
+    .comenzar {
+        font-size: 60px;
+    }
+/* Barra de navegacion responsiva */
+    .nav {
+        display: none;
+    }
+    
+    .responsive-menu {
+        display: inline-block;
+        width: 100%;
+        position: fixed;
+        z-index: 20;
+    }
+
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        justify-content: center;
+        align-items: start;
+        width: 100%;
+        padding-left: 10px;
+        min-height: 40px;
+        background-color: var(--color-blue-france);
+        z-index: 20;
+    }
+    
+    .sub-menu {
+        display: none;
+        width: 100%;
+        background-color: var(--color-green-aqua);
+    }
+
+    .label {
+        font-size: 15px;
+        padding: 15px;
+    }
+
+    .menu-line {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .menu-icon.open .menu-line:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+    
+    .menu-icon.open .menu-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-icon.open .menu-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .menu-icon.open + .sub-menu {
+        display: flex;
+    }
+
+
+/* title-pag responsivos */
+
+    .title-pag {
+        font-size: 33px;
+    }
+
+
+/* Perfil profesional responsivo (ancho maximo 700px)*/
+
+    .perfil-text {
+        font-size: 18px;
+    }
+
+
+/* Experiencia Profesional responsiva */
+
+    .xplab-title {
+        flex-wrap: wrap;
+    }
+    
+    .xplab-title h5 {
+            font-size: 16px;
+    }
+    
+    .xplab-title p {
+            font-size: 12px;
+    }
+    
+    .xp-ul {
+        font-size: 10px;
+    }
+
+/* Informacion Personal responsivo */
+
+    .inpersonal-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .inpersonal-left {
+        gap: 7px;
+    }
+
+    .inpersonal-info {
+        max-width: fit-content;
+    }
+
+    .inpersonal-info img {
+        max-width: 50%;
+    }
+
+}
+
+
+
